@@ -25,16 +25,14 @@ for i in range(w):
     graph[b].append((a,0))
 
 for j in range(n): # 전선의 가중치 넣기
-    for i in range(n):
-        if i == j:
-            continue
+    for i in range(j+1,n):
         d = (pow((where[j][0] - where[i][0]),2) + pow((where[j][1] - where[i][1]),2))**(0.5)
         if d <= m: # 전선 길이의 한계까지 되는 곳만 넣기
             graph[j+1].append((i+1,d))
             graph[i+1].append((j+1,d))
 
 distance = [INF]*(n+1)
-def dijkstra(start,end):
+def dijkstra(start,end): 
     q=[]
     heapq.heappush(q,(0,start))
     distance[start] = 0
