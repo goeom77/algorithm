@@ -1,5 +1,6 @@
+import sys
 n = int(input())
-arr = list(map(int, input().split()))
+arr = list(map(int, sys.stdin.readline().split()))
 result = arr[0]
 dp = arr[0]
 for i in range(1,n):
