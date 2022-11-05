@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 n = int(input())
 arr = []
 for i in range(n):
@@ -11,9 +13,5 @@ result.append(arr[-1])
 while n != 0:
     n -= 1
     for k in range(n):
-        if result[n][k] > result[n][k+1]:
-            tmp = result[n][k]
-        else:
-            tmp = result[n][k+1]
-        result[n-1][k] = arr[n-1][k] + tmp
+        result[n-1][k] = arr[n-1][k] + max(result[n][k],result[n][k+1])
 print(result[0][0])
