@@ -1,4 +1,5 @@
-
+import sys
+input = sys.stdin.readline
 dp=list(list([0]*21 for i in range(21)) for j in range(21))
 for i in range(21):
     for j in range(21):
