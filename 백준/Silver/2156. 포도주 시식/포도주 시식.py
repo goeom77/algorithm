@@ -1,6 +1,8 @@
 # 포도주
 # 다 마시고 그자리에 두기
 # 연속 3개 금지
+import sys
+input = sys.stdin.readline
 N = int(input())
 soju = [0]*(N+1)
 for i in range(N):
