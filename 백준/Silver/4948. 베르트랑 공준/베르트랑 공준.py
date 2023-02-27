@@ -8,13 +8,12 @@ arr = [0] + [1]*mx_n
 for i in range(2,mx_n + 1):
     if arr[i] == 1:
         tmp = 2
-        flag = True
-        while flag:
+        while True:
             try:
                 arr[i*tmp] = 0
                 tmp += 1
             except:
-                flag = False
+                break
                 
 while True:
     n = int(input())
@@ -24,6 +23,4 @@ while True:
         print(1)
     else:
         print(sum(arr[n+1:2*n+1]))
-    # 1 ~ 123456
-
-                
+    # 1 ~ 123456 
