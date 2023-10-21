@@ -22,12 +22,8 @@ public class Main {
         }
         for (int j=0; j<m; j++) {
             String value = new StringTokenizer(br.readLine()).nextToken();
-            try {
-                if (noListen.get(value)) {
-                    result.add(value);
-                }
-            } catch(Exception e) {
-                continue;
+            if (noListen.containsKey(value)) {
+                result.add(value);
             }
 
         }
