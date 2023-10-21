@@ -9,6 +9,7 @@ public class Main {
     static ArrayList<String> result;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
         // n = 듣도 못한 사람
         // m = 보도 못한 사람
@@ -29,10 +30,10 @@ public class Main {
         }
 
         Collections.sort(result);
-        System.out.println(result.size());
+        bw.write(result.size()+"\n");
         for(String re:result) {
-            System.out.println(re);
+            bw.write(re+"\n");
         }
-
+        bw.flush();
     }
 }
