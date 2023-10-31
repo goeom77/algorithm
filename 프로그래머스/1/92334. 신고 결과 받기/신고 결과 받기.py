@@ -6,7 +6,7 @@ def solution(id_list, report, k):
         reportMe[id] = set()
 
     ban = []
-    for value in report:
+    for value in set(report):
         re, banner = value.split()
         reporter[re].add(banner)
         reportMe[banner].add(re)
