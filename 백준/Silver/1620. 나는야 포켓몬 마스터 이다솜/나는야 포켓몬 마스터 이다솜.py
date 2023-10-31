@@ -1,16 +1,16 @@
-N,T = map(int,input().split())
-pocket1 = {'0':'aa'}
-pocket2 = {'aa':'0'}
-for n in range(1,N+1):
-    a = input()
-    pocket1[str(n)] = a
-    pocket2[a] = n
-
-for t in range(T):
-    b = input()
-    if b.isdecimal():
-        c = pocket1[b]
-        print(c)
+import sys
+input = sys.stdin.readline
+n, m = map(int, input().split())
+intToStringDict = {}
+stringToIntDict = {}
+for c in range(1,n+1):
+    # c가 숫자인가
+    value = input().strip()
+    intToStringDict[c] = value
+    stringToIntDict[value] = c
+for _ in range(m):
+    test = input().strip()
+    if test.isdigit():
+        print(intToStringDict[int(test)])
     else:
-        d =pocket2[b]
-        print(d)
+        print(stringToIntDict[test])
