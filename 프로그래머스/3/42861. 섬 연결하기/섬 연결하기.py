@@ -6,9 +6,8 @@ def solution(n, costs):
     answer = 0
     def getParent(n):
         if parent[n] == n:
-            return n
-        parent[n] = getParent(parent[n])
-        return parent[n]
+            return parent[n]
+        return getParent(parent[n])
     def unionParent(a,b):
         a = getParent(a)
         b = getParent(b)
