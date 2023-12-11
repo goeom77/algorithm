@@ -19,10 +19,11 @@ public class Main {
         for(int i=0; i<n; i++) {
             list[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(list);
+
         // list의 부분수열의 합이 s가 되는 경우의 수를 구하시오.
         // 우선 list의 부분수열을 모두 구한다.
         dfs(0,0);
+        // 공집합 제거
         if(s == 0) {
             result--;
         }
@@ -31,6 +32,7 @@ public class Main {
 
     }
     private static void dfs(int index, int sum) {
+
         if(index == n) {
             if(sum == s) {
                 result++;
