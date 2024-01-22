@@ -1,24 +1,17 @@
-# 포도주
-# 다 마시고 그자리에 두기
-# 연속 3개 금지
 import sys
+from itertools import combinations
+
 input = sys.stdin.readline
-N = int(input())
-soju = [0]*(N+1)
-for i in range(N):
-    soju[i+1] = int(input())
-dp= [0]*(N+1)
-result = 0
-if N > 0:
-    dp[1] = soju[1]
-    result = dp[1]
-if N > 1:
-    dp[2] = dp[1] + soju[2]
-    result = dp[2]
-if N > 2:
-    for i in range(3,N+1):
-    # dp[3] = dp[1] + soju[3], dp[0] + soju[2] + soju[3]
-        dp[i] = max(dp[i-2] + soju[i],dp[i-3]+soju[i-1]+soju[i],dp[i-1])
-        if dp[i] > result:
-            result = dp[i]
-print(result)
+# 2156 포도주 시식
+n = int(input())
+wine = [int(input()) for _ in range(n)]
+# n개의 포도주가 주어졌을 때, 최대로 마실 수 있는 포도주의 양을 구하라, 3번 연속으로 마실 수 없다.
+dp = [0] * n
+dp[0] = wine[0]
+if n > 1:
+    dp[1] = wine[0] + wine[1]
+    if n > 2:
+        dp[2] = max(dp[1], wine[0] + wine[2], wine[1] + wine[2])
+        for i in range(3, n):
+            dp[i] = max(dp[i - 1], dp[i - 2] + wine[i], dp[i - 3] + wine[i - 1] + wine[i])
+print(dp[-1])
